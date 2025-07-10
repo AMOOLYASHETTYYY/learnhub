@@ -1,0 +1,15 @@
+{% extends 'base.html' %}
+{% block content %}
+<h2>My Subscribed Courses</h2>
+
+<ul>
+  {% for enrollment in enrollments %}
+    <li>
+      <strong>{{ enrollment.course.title }}</strong><br>
+      {{ enrollment.course.description }}
+    </li>
+  {% empty %}
+    <li>You haven't subscribed to any courses yet.</li>
+  {% endfor %}
+</ul>
+{% endblock %}

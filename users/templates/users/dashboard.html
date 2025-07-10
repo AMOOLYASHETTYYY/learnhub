@@ -1,0 +1,19 @@
+{% extends 'base.html' %}
+{% block content %}
+  <div class="text-center my-4">
+    <h2>Welcome to LearnHub, {{ user.username }}!</h2>
+  </div>
+
+  {% if user.is_teacher %}
+    <div class="text-center">
+      <a href="{% url 'teacher_dashboard' %}" class="btn btn-primary">Go to Teacher Dashboard</a>
+    </div>
+  {% elif user.is_student %}
+    <div class="text-center">
+      <a href="{% url 'explore_courses' %}" class="btn btn-success">Explore Courses</a>
+      <a href="{% url 'my_courses' %}" class="btn btn-secondary">My Courses</a>
+    </div>
+  {% else %}
+    <div class="alert alert-warning">User type unknown.</div>
+  {% endif %}
+{% endblock %}

@@ -1,0 +1,14 @@
+{% extends 'base.html' %}
+{% block content %}
+<div class="text-center py-5">
+  <h1> Welcome to LearnHub!</h1>
+  <p class="lead">Your platform for smart online learning.</p>
+
+  {% if not user.is_authenticated %}
+    <a href="{% url 'login' %}" class="btn btn-primary me-2">Login</a>
+    <a href="{% url 'student_signup' %}" class="btn btn-success">Sign Up</a>
+  {% else %}
+    <a href="{% url 'dashboard' %}" class="btn btn-outline-info">Go to Dashboard</a>
+  {% endif %}
+</div>
+{% endblock %}

@@ -1,0 +1,10 @@
+<h2>Students Enrolled in {{ course.title }}</h2>
+<ul>
+    {% for enrollment in enrollments %}
+        <li>{{ enrollment.student.username }} ({{ enrollment.student.email }})</li>
+    {% empty %}
+        <li>No students enrolled yet.</li>
+    {% endfor %}
+</ul>
+
+<a href="{% url 'teacher_dashboard' %}">← Back to Dashboard</a>
