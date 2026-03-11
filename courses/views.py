@@ -103,16 +103,7 @@ def explore_courses(request):
 
 @login_required
 def subscribe_course(request, course_id):
-    course = get_object_or_404(Course, id=course_id)
-
-    if request.user.is_teacher:
-        return redirect('explore_courses')
-
-    already_enrolled = Enrollment.objects.filter(student=request.user, course=course).exists()
-    if not already_enrolled:
-        Enrollment.objects.create(student=request.user, course=course)
-
-    return redirect('my_courses')
+    return redirect('create_payment', course_id=course_id)
 
 @login_required
 def my_courses(request):

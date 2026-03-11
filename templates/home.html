@@ -1,14 +1,39 @@
 {% extends 'base.html' %}
 {% block content %}
-<div class="text-center py-5">
-  <h1> Welcome to LearnHub!</h1>
-  <p class="lead">Your platform for smart online learning.</p>
 
-  {% if not user.is_authenticated %}
-    <a href="{% url 'login' %}" class="btn btn-primary me-2">Login</a>
-    <a href="{% url 'student_signup' %}" class="btn btn-success">Sign Up</a>
-  {% else %}
-    <a href="{% url 'dashboard' %}" class="btn btn-outline-info">Go to Dashboard</a>
-  {% endif %}
+<div class="container d-flex align-items-center justify-content-center" style="min-height:80vh;">
+  <div class="text-center p-5 shadow-lg rounded" style="max-width:700px; background:white;">
+
+    <h1 class="fw-bold mb-3">🎓 Welcome to LearnHub</h1>
+
+    <p class="lead text-muted mb-4">
+      Your platform for smart online learning. Discover courses, learn from experts, and upgrade your skills.
+    </p>
+
+    {% if not user.is_authenticated %}
+      <a href="{% url 'login' %}" class="btn btn-primary btn-lg me-3 px-4">
+        Login
+      </a>
+
+      <a href="{% url 'student_signup' %}" class="btn btn-success btn-lg px-4">
+        Sign Up
+      </a>
+    {% else %}
+      <a href="{% url 'dashboard' %}" class="btn btn-outline-info btn-lg px-4">
+        Go to Dashboard
+      </a>
+    {% endif %}
+
+  </div>
 </div>
+
+<style>
+   body {
+  padding-top: 70px;
+  background: url("https://images.unsplash.com/photo-1523240795612-9a054b0db644") no-repeat center center fixed;
+  background-size: cover;
+  min-height:100vh;
+}
+</style>
+
 {% endblock %}
